@@ -1,1 +1,3 @@
 test file git
+line2 just textline2 just text
+line3 third text
