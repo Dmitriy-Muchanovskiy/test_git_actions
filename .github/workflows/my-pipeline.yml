@@ -70,7 +70,7 @@ jobs:
       - name: Version AWS if it here
         run: aws --version
         
-      - name: Version Zip if it here
-        run: zip --version
+      - name: Version TAR if it here
+        run: tar --version
     
   
