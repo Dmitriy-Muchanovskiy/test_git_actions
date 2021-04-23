@@ -27,7 +27,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+     # - uses: actions/checkout@v2
 
       # Runs a single command using the runners shell
       - name: Print My Hello!
@@ -38,6 +38,12 @@ jobs:
         run: |
           echo Current date is
           date '+%Y.%m.%d-%H:%M'
+      - name: Git clone repo to docker
+        uses: actions/checkout@v2
+        
+      - name: Print list of files in current filder
+        run: ls -la
+        
           
   my_deploy1:
     runs-on: ubuntu-latest
