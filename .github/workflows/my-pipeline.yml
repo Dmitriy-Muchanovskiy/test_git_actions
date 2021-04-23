@@ -48,11 +48,29 @@ jobs:
   my_deploy1:
     runs-on: ubuntu-latest
     needs: [my_job1]
+    env:
+      VAR1: "Jeploy job VAR1"
+      VAR2: "Jeploy job VAR2"
     
     steps:
       - name: My First Deploy starts
         run: |
           echo "Test text for Deploy Block"
           echo "Deploy is over for ${{ env.PACKAGE_NAME }}"
+          ls -la
+          
+      - name: Print ENV Variables
+        run: |
+          echo "VAR1 for deploy = ${{ env.VAR1 }}"
+          echo "VAR2 for deploy = ${{ env.VAR2 }}"
+          echo "VAR3 for deploy = $LOCAL_VAR"
+        env:
+          LOCAL_VAR: "VAR FOR TEST STEP"
+          
+      - name: Version AWS if it here
+        run: aws --version
+        
+      - name: Version Zip if it here
+        run: zip --version
     
   
