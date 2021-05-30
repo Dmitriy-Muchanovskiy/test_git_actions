@@ -38,6 +38,7 @@ jobs:
         run: |
           echo Current date is
           date '+%Y.%m.%d-%H:%M'
+          ls -la
       - name: Git clone repo to docker
         uses: actions/checkout@v2
         
