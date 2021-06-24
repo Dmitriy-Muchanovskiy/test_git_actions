@@ -66,4 +66,5 @@ jobs:
       - name: read build result
         run: |
           ls -la
+          cat artifact.t
 
