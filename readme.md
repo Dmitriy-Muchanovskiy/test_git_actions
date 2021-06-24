@@ -5,5 +5,5 @@ Status of last pipeline: <br>
 
 
 Status of last pipeline my-test: <br>
-<img src="https://github.com/Dmitriy-Muchanovskiy/test_git/workflows/my-test.yml/badge.svg?branch-master"><br>
+<img src="https://github.com/Dmitriy-Muchanovskiy/test_git/actions/workflows/my-test.yml/badge.svg?branch=master"><br>
 
