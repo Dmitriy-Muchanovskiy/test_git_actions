@@ -2,4 +2,4 @@ test file git
 fix error
 some text
 line2 just textline2 just text
-1
+12
