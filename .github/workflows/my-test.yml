@@ -39,6 +39,5 @@ jobs:
         run: |
           ls -la
           uname -a
-          unkown comand
           echo "test branching"
 
