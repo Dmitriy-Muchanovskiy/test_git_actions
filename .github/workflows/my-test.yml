@@ -82,4 +82,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "This job's status is ${{ job.status }} ."
+      - run: |
+          echo "This job's status is ${{ job.status }}."
+          echo "If add [skip ci] in commit actions will be ignored"
+          go version
