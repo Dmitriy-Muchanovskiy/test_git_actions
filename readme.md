@@ -5,5 +5,5 @@ Status of last pipeline: <br>
 
 
 Status of last pipeline: <br>
-<img src="https://github.com/Dmitriy-Muchanovskiy/test_git_actions/actions/workflows/MY-CI\CD/badge.svg?branch-master"><br>
+<img src="https://github.com/Dmitriy-Muchanovskiy/test_git_actions/workflows/MY-CI\CD/badge.svg?branch-master"><br>
 
