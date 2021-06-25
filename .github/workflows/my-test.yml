@@ -68,7 +68,7 @@ jobs:
         run: |
           ls -la
           cat artifact.t
-          echo "${{ hashFiles('artifact.t') }}"
+          echo "hashfile = ${{ hashFiles('artifact.t') }}"
 
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
