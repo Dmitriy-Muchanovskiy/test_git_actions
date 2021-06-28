@@ -107,6 +107,7 @@ jobs:
       - name: Some tests for containers
         run: |
           docker ps -a
+          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
           sleep 5
           curl localhost:8888
 
@@ -117,6 +118,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2      
       - name: golangci-lint install
+        if: ${{ false }}
         uses: golangci/golangci-lint-action@v2
         with:
           version: latest
