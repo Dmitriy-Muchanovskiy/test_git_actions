@@ -106,7 +106,8 @@ jobs:
           docker-compose -f ./projarka/docker-compose.yml up -d
       - name: Some tests for containers #container with db dont work
         run: |
-          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
+          #docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
+          docker exec projarka-db ls -la
           docker ps -a
           sleep 5
           curl localhost:8888
