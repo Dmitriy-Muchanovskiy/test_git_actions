@@ -99,7 +99,7 @@ jobs:
       - name: Docker compose up started
         run: |
           pwd
-          ls
+          ls -la
           pwd
           ls
           docker-compose up -d
