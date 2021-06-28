@@ -134,7 +134,7 @@ jobs:
           whereis go && echo "-----------------"
           go env && echo "-----------------"
           echo $(go env GOPATH)/bin
-          #golangci-lint --version
+          golangci-lint --version
 
 
   Setup_python:
