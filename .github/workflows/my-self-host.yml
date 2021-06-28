@@ -32,6 +32,7 @@ jobs:
         run: |
           pwd
           ls -la
+          whoami && id
           docker-compose -f ./projarka/docker-compose.yml up -d
       - name: Some tests for containers #container with db dont work
         run: |
@@ -40,4 +41,7 @@ jobs:
           docker ps -a
           sleep 5
           curl localhost:8888
+      - name: Stops containers and delete all files
           docker-compose -f ./projarka/docker-compose.yml down
+          rm -r *
+      
