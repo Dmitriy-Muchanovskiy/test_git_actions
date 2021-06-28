@@ -91,7 +91,18 @@ jobs:
           echo "If add [skip ci] in commit actions will be ignored"
           go version
           docker-compose --version
-  
+
+  docker_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Docker compose up started
+        run: docker-compose -f ./projarka/docker-compose.yml up -d
+      - name: Some tests for containers
+        run: |
+          docker ps -a
+          curl localhost:8888
+
   Setup_python:
     runs-on: ubuntu-latest
     if: ${{ false }}

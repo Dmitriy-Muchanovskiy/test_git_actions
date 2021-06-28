@@ -1,0 +1,25 @@
+version: "3.9"
+    
+services:
+  db:
+    image: mariadb
+    restart: always
+    container_name: projarka-db
+    volumes:
+     - ./test-sql:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: rootdb
+      MYSQL_DATABASE: projarka
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      
+  back:
+    build: ./docker/backend
+    restart: always
+    container_name: projarka-back
+    working_dir: /usr/src/app
+    command: python3 api.py
+    ports:
+      - "8888:8888"
+
+
