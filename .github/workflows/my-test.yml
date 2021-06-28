@@ -90,9 +90,11 @@ jobs:
           echo "This job's status is ${{ job.status }}."
           echo "If add [skip ci] in commit actions will be ignored"
           go version
+          docker-compose --version
   
   Setup_python:
     runs-on: ubuntu-latest
+    if: ${{ false }}
     #needs: test
     #strategy:
       #matrix:
