@@ -96,13 +96,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Git Clone
+        uses: actions/checkout@v2
       - name: Docker compose up started
         run: |
           pwd
           ls -la
-          pwd
-          ls
-          docker-compose up -d
+          docker-compose -f ./projarka/docker-compose.yml up -d
       - name: Some tests for containers
         run: |
           docker ps -a
