@@ -126,13 +126,13 @@ jobs:
       - name: golangci-lint install manual
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
-          PATH=$PATH:$(go env GOPATH)/bin
+          echo $(go env GOPATH)/bin
       - name: go something
         run: |
           env && echo "-------------------------"
           whereis go && echo "-----------------"
           go env && echo "-----------------"
-          golangci-lint --version
+          #golangci-lint --version
 
 
   Setup_python:
