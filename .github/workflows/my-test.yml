@@ -99,8 +99,10 @@ jobs:
       - name: Docker compose up started
         run: |
           pwd
+          ls
           cd projarka
           pwd
+          ls
           docker-compose up -d
       - name: Some tests for containers
         run: |
