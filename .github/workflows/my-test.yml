@@ -97,7 +97,11 @@ jobs:
 
     steps:
       - name: Docker compose up started
-        run: docker-compose -f projarka/docker-compose.yml up -d
+        run: |
+          pwd
+          cd projarka
+          pwd
+          docker-compose up -d
       - name: Some tests for containers
         run: |
           docker ps -a
