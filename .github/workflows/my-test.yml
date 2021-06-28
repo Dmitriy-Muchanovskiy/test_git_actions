@@ -138,6 +138,7 @@ jobs:
       - name: my python test
         run: |
           python3 my.py &
+          sleep 5
           curl localhost:8888
       
       - name: Test with pytest
