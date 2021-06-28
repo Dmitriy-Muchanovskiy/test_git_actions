@@ -100,7 +100,6 @@ jobs:
         run: |
           pwd
           ls
-          cd projarka
           pwd
           ls
           docker-compose up -d
