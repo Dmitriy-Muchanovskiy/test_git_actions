@@ -106,7 +106,6 @@ jobs:
           docker-compose -f ./projarka/docker-compose.yml up -d
       - name: Some tests for containers
         run: |
-          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
           docker ps -a
           sleep 5
           curl localhost:8888
