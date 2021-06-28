@@ -133,6 +133,7 @@ jobs:
           env && echo "-------------------------"
           whereis go && echo "-----------------"
           go env && echo "-----------------"
+          echo $(go env GOPATH)/bin
           #golangci-lint --version
 
 
