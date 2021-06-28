@@ -144,6 +144,7 @@ jobs:
           echo "go-lint successfully finished"
       - name: Go compile
         run: |
+          ls -la
           go mod init hello.go
           go mod tidy
           go build -o ${{ env.PACKAGE_NAME }}
