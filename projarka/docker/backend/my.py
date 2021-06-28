@@ -7,4 +7,4 @@ app = flask.Flask(__name__)
 def home():
     return "<h1>Hello from Flask</h1>"
 
-app.run(host='localhost',port='8888')
+app.run(host='projarka-back',port='8888')

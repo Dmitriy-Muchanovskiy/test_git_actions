@@ -106,6 +106,7 @@ jobs:
           docker-compose -f ./projarka/docker-compose.yml up -d
       - name: Some tests for containers
         run: |
+          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
           docker ps -a
           sleep 5
           curl localhost:8888
@@ -114,6 +115,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2      
       - name: golangci-lint install
         uses: golangci/golangci-lint-action@v2
         with:
