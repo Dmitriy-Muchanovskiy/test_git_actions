@@ -118,20 +118,22 @@ jobs:
         uses: actions/checkout@v2  
       - name: test  hello go
         run: go run hello.go    
-      - name: golangci-lint install
+      - name: golangci-lint action
         if: ${{ false }}
         uses: golangci/golangci-lint-action@v2
         with:
           version: v1.29
-      - name: golangci-lint version
+      - name: golangci-lint install manual
         run: |
           curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
-          #golangci-lint --version
+          PATH=$PATH:$(go env GOPATH)/bin
       - name: go something
         run: |
           env && echo "-------------------------"
           whereis go && echo "-----------------"
-          go env
+          go env && echo "-----------------"
+          golangci-lint --version
+
 
   Setup_python:
     runs-on: ubuntu-latest
