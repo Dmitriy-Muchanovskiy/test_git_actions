@@ -107,7 +107,7 @@ jobs:
       - name: Some tests for containers
         run: |
           docker ps -a
-          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
+          docker exec projarka-db mariadb -u root -prootdb -e  "select * from projarka.first"
           sleep 5
           curl localhost:8888
 
