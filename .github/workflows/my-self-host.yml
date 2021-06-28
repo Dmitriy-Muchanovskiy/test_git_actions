@@ -1,0 +1,22 @@
+
+name: My-self-host-pipeline
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+
+  build:
+    runs-on: self-hosted
+    
+    steps:
+      - name: First identity my-VM
+        run: |
+          pwd
+          ls -la
+          uname -a
+          echo "test" > some_file.txt
+          ls -la
