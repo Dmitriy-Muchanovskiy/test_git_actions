@@ -20,3 +20,23 @@ jobs:
           uname -a
           echo "test" > some_file.txt
           ls -la
+
+  docker_test:
+    runs-on: self-hosted
+    #if: ${{ false }}
+
+    steps:
+      - name: Git Clone
+        uses: actions/checkout@v2
+      - name: Docker compose up started
+        run: |
+          pwd
+          ls -la
+          docker-compose -f ./projarka/docker-compose.yml up -d
+      - name: Some tests for containers #container with db dont work
+        run: |
+          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
+          docker exec projarka-db ls -la
+          docker ps -a
+          sleep 5
+          curl localhost:8888
