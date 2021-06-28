@@ -129,7 +129,8 @@ jobs:
           #golangci-lint --version
       - name: go something
         run: |
-          env
+          env && echo "-------------------------"
+          whereis go && echo "-----------------"
           go env
 
   Setup_python:
