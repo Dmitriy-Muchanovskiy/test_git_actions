@@ -94,7 +94,7 @@ jobs:
 
   docker_test:
     runs-on: ubuntu-latest
-    if: ${{ false }}
+    #if: ${{ false }}
 
     steps:
       - name: Git Clone
@@ -107,11 +107,12 @@ jobs:
       - name: Some tests for containers
         run: |
           docker ps -a
+          sleep 5
           curl localhost:8888
 
   Setup_python:
     runs-on: ubuntu-latest
-    #if: ${{ false }}
+    if: ${{ false }}
     #needs: test
     #strategy:
       #matrix:
