@@ -18,7 +18,7 @@ services:
     restart: always
     container_name: projarka-back
     working_dir: /usr/src/app
-    command: python3 my.py
+    command: python3 api.py
     ports:
       - "8888:8888"
 
