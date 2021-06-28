@@ -119,10 +119,10 @@ jobs:
       - name: test  hello go
         run: go run hello.go    
       - name: golangci-lint install
-        if: ${{ false }}
+        #if: ${{ false }}
         uses: golangci/golangci-lint-action@v2
         with:
-          version: latest
+          version: v1.29
       - name: golangci-lint version
         run: go run .
         #run: golangci-lint --version
