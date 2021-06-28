@@ -42,6 +42,7 @@ jobs:
           sleep 5
           curl localhost:8888
       - name: Stops containers and delete all files
+        run: |
           docker-compose -f ./projarka/docker-compose.yml down
           rm -r *
       
