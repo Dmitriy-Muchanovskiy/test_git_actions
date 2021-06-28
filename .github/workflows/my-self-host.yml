@@ -37,7 +37,7 @@ jobs:
       - name: Some tests for containers #container with db dont work
         run: |
           sleep 5
-          docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
+          #docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
           #docker exec projarka-db ls -la
           docker ps -a
           curl localhost:8888
