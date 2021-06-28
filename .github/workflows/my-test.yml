@@ -99,10 +99,6 @@ jobs:
     steps:
       - name: Git Clone
         uses: actions/checkout@v2
-      - name: Go lint  test
-        run: |
-          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
-          golangci-lint --version
       - name: Docker compose up started
         run: |
           pwd
@@ -113,6 +109,17 @@ jobs:
           docker ps -a
           sleep 5
           curl localhost:8888
+
+  go_lint_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: golangci-lint install
+        uses: golangci/golangci-lint-action@v2
+        with:
+          version: latest
+      - name: golangci-lint version
+        run: golangci-lint --version
 
   Setup_python:
     runs-on: ubuntu-latest
