@@ -139,6 +139,7 @@ jobs:
           pwd
           golangci-lint run ./...
           #golangci-lint run hello.go
+          echo "go-lint successfully finished"
 
 
   Setup_python:
