@@ -91,6 +91,7 @@ jobs:
           echo "If add [skip ci] in commit actions will be ignored"
           go version
           docker-compose --version
+          echo ${{ secrets.GITHUB_TOKEN }}
 
   docker_test:
     runs-on: ubuntu-latest
