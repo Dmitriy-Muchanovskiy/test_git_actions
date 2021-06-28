@@ -94,7 +94,7 @@ jobs:
 
   docker_test:
     runs-on: ubuntu-latest
-    #if: ${{ false }}
+    if: ${{ false }}
 
     steps:
       - name: Git Clone
@@ -104,7 +104,7 @@ jobs:
           pwd
           ls -la
           docker-compose -f ./projarka/docker-compose.yml up -d
-      - name: Some tests for containers
+      - name: Some tests for containers #container with db dont work
         run: |
           docker ps -a
           sleep 5
@@ -115,7 +115,9 @@ jobs:
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2      
+        uses: actions/checkout@v2  
+      - name: test  hello go
+        run: go run hello.go    
       - name: golangci-lint install
         if: ${{ false }}
         uses: golangci/golangci-lint-action@v2
