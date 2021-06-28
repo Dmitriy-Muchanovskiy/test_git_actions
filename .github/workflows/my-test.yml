@@ -112,6 +112,8 @@ jobs:
 
   go_lint_test:
     runs-on: ubuntu-latest
+    env:
+      PACKAGE_NAME: go_main
 
     steps:
       - name: Check out repository code
@@ -140,6 +142,12 @@ jobs:
           golangci-lint run ./...
           #golangci-lint run hello.go
           echo "go-lint successfully finished"
+      - name: Go compile
+        run: |
+          go mod init hello.go
+          go mod tidy
+          go build -o ${{ env.PACKAGE_NAME }}
+          ./${{ env.PACKAGE_NAME }}
 
 
   Setup_python:
