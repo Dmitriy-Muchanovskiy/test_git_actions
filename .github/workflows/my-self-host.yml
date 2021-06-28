@@ -36,10 +36,10 @@ jobs:
           docker-compose -f ./projarka/docker-compose.yml up -d
       - name: Some tests for containers #container with db dont work
         run: |
+          sleep 5
           docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"
           #docker exec projarka-db ls -la
           docker ps -a
-          sleep 5
           curl localhost:8888
       - name: Stops containers and delete all files
         run: |
