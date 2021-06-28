@@ -117,6 +117,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2  
       - name: test  hello go
+        if: ${{ false }}
         run: go run hello.go    
       - name: golangci-lint action
         if: ${{ false }}
@@ -137,7 +138,7 @@ jobs:
           golangci-lint --version
           pwd
           golangci-lint run ./...
-          golangci-lint run hello.go
+          #golangci-lint run hello.go
 
 
   Setup_python:
