@@ -99,6 +99,10 @@ jobs:
     steps:
       - name: Git Clone
         uses: actions/checkout@v2
+      - name: Go lint  test
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.41.1
+          golangci-lint --version
       - name: Docker compose up started
         run: |
           pwd
