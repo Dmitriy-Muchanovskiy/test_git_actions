@@ -121,7 +121,8 @@ jobs:
         with:
           version: latest
       - name: golangci-lint version
-        run: golangci-lint --version
+        run: go run .
+        #run: golangci-lint --version
 
   Setup_python:
     runs-on: ubuntu-latest
