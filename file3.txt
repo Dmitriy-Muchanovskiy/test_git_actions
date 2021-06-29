@@ -1,3 +1,0 @@
-test file3 git
-line2 second line 
-line3 test pull for merge

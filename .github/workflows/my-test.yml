@@ -150,6 +150,10 @@ jobs:
           go mod tidy
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
+      - name: Go unit-tests 
+        run: |
+          cd go_test && pwd
+
 
 
   Setup_python:
