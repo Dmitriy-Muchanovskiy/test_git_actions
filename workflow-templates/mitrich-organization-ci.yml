@@ -1,0 +1,8 @@
+{
+    "name": "Mitrich Organization Workflow",
+    "description": "Mitrich Organization CI workflow template.",
+    "iconName": "example-icon",
+    "categories": [
+        "Go"
+    ],
+}
