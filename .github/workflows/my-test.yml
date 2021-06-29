@@ -152,7 +152,10 @@ jobs:
           ./${{ env.PACKAGE_NAME }}
       - name: Go unit-tests 
         run: |
-          cd go_test && pwd
+          cd go_test && go mod init main.go && go mod tidy
+          go test -v
+          go build -o ${{ env.PACKAGE_NAME }}
+          ./${{ env.PACKAGE_NAME }}
 
 
 
