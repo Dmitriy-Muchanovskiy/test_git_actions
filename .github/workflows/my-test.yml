@@ -154,6 +154,8 @@ jobs:
         run: |
           cd go_test && go mod init main.go && go mod tidy
           go test -v
+          go test -coverprofile=cover.txt 
+          exit 1
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
 
