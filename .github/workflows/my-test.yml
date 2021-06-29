@@ -112,7 +112,7 @@ jobs:
           sleep 5
           curl localhost:8888
 
-  go_lint_test:
+  go_test:
     runs-on: ubuntu-latest
     env:
       PACKAGE_NAME: go_main
