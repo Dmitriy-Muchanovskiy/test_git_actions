@@ -159,6 +159,10 @@ jobs:
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
+      - name: package test
+        run: |
+          cd my && cp -r my $(go env GOPATH)/src
+          ls $(go env GOPATH)/src
 
 
 
