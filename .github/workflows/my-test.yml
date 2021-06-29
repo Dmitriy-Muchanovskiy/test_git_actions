@@ -163,6 +163,7 @@ jobs:
         run: |
           cd my && cp -r my $(go env GOPATH)/src
           ls $(go env GOPATH)/src
+          go run main.go
 
 
 
