@@ -135,7 +135,7 @@ jobs:
           #PATH=$PATH:/usr/bin/go
       - name: go lint
         run: |
-          #env && echo "-------------------------"
+          env && echo "-------------------------"
           #whereis go && echo "-----------------"
           #go env && echo "-----------------"
           #echo $(go env GOPATH)/bin
