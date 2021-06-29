@@ -156,6 +156,7 @@ jobs:
           go test -v
           #go test -coverprofile=cover.txt 
           bash cover.sh
+          cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
 
