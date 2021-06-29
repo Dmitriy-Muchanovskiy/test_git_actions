@@ -3,7 +3,7 @@ import "testing"
 
 func TestFirst(t *testing.T) {
  
-    result := "asd"//first()
+    result := first()
 
     if result == "" {
         t.Errorf("first hello failed, expected Just string, got %v", result)

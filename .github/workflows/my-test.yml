@@ -141,7 +141,7 @@ jobs:
           #echo $(go env GOPATH)/bin
           golangci-lint --version
           pwd
-          #golangci-lint run ./... test_folder/...
+          golangci-lint run ./... test_folder/...
           #golangci-lint run hello.go
           echo "go-lint successfully finished"
       - name: Go compile
