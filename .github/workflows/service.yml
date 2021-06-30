@@ -30,7 +30,9 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=5s --health-timeout=2s --health-retries=3
 
     steps:
-      # - uses: actions/checkout@v2
+      - name: create new folder for work
+        run: mkdir new_folder && cd $_
+      - uses: actions/checkout@v2
       - name: Install dependencies
         run: |
           pwd && ls
