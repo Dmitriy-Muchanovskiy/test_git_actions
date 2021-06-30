@@ -22,7 +22,7 @@ jobs:
           ls -la
       - name: delete all files
         run: |
-          sleep 10
+          sleep 30
           rm -r *
 
   docker_test:
