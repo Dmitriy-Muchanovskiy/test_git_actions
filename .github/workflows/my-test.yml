@@ -25,7 +25,7 @@ jobs:
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -54,7 +54,7 @@ jobs:
           retention-days: 5
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: build
     
     steps:
@@ -80,7 +80,7 @@ jobs:
           echo "hashfile = ${{ hashFiles('artifact.t') }}"
 
   Explore-GitHub-Actions:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - run: echo "The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "The job was automatically triggered by a $GITHUB_EVENT_NAME event BY CAPS"
@@ -102,7 +102,7 @@ jobs:
           docker-compose --version
 
   docker_test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: ${{ false }}
 
     steps:
@@ -122,7 +122,7 @@ jobs:
           curl localhost:8888
 
   go_test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     env:
       PACKAGE_NAME: go_main
 
@@ -178,7 +178,7 @@ jobs:
 
 
   Setup_python:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     if: ${{ false }}
     #needs: test
     #strategy:
