@@ -7,10 +7,10 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-    # paths:
-    #   - 'go_test/**'
-    paths-ignore:
-      - "test_*/**"
+    paths:
+      - 'go_test/**'
+    # paths-ignore:
+    #   - "test_*/**"
 
   pull_request:
     branches: [ master ]
