@@ -46,6 +46,14 @@ jobs:
         
       - name: Print list of files in current filder
         run: ls -la
+
+      - name: Test working-directory option
+        working-directory: ./test_folder
+        run: |
+          pwd && ls -la
+
+      - name: Test After working-directory
+        run: pwd && ls -la
         
           
   my_deploy1:

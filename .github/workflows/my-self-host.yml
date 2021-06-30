@@ -2,11 +2,11 @@
 name: My-self-host-pipeline
 
 on:
-  push:
-   branches:
-     - master
+  # push:
+  #  branches:
+  #    - master
   workflow_dispatch:
-# dsfasd2123123asdasd123123asdasdasd
+
 jobs:
 
   build:
