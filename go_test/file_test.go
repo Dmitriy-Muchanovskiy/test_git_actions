@@ -26,3 +26,14 @@ func TestHelloValue(t *testing.T) {
         t.Logf("hello(\"\") success, expected %v, got %v", "Hello Test!", emptyResult)
     }
 }
+
+func TestFirst(t *testing.T) {
+ 
+    result := first()
+
+    if result == "" {
+        t.Errorf("first hello failed, expected Just string, got %v", result)
+    } else {
+        t.Logf("first hello success, expected Just string, got %v", result)
+    }
+}
