@@ -2,9 +2,9 @@
 name: My-self-host-pipeline
 
 on:
-  #push:
-  #  branches:
-  #    - master
+  push:
+   branches:
+     - master
   workflow_dispatch:
 
 jobs:
@@ -20,10 +20,14 @@ jobs:
           uname -a
           echo "test" > some_file.txt
           ls -la
+      - name: delete all files
+        run: |
+          sleep 10
+          rm -r *
 
   docker_test:
     runs-on: self-hosted
-    #if: ${{ false }}
+    if: ${{ false }}
 
     steps:
       - name: Git Clone
@@ -34,7 +38,7 @@ jobs:
           ls -la
           whoami && id
           docker-compose -f ./projarka/docker-compose.yml up -d
-      - name: Some tests for containers #container with db dont work
+      - name: Some tests for containers
         run: |
           sleep 5
           #docker exec projarka-db mysql -u root -prootdb -e  "select * from projarka.first"

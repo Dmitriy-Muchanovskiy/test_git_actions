@@ -71,6 +71,7 @@ jobs:
           name: test_artifact
           
       - name: read build result
+        # if: ${{ failure() }} # run if previous job is failure
         run: |
           ls -la
           cat artifact.t
