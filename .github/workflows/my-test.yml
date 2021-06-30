@@ -6,9 +6,9 @@ name: MY-CI-CD
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    #branches: [ master ]
+    branches: [ master ]
     paths:
-      - 'go-test/**'
+      - 'go_test/**'
 
   pull_request:
     branches: [ master ]
