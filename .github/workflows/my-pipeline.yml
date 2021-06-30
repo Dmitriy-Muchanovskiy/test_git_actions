@@ -12,9 +12,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches:
-      - werwer
+      - tes
   pull_request:
-    branches: [ werwer ]
+    branches: [ tes ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
