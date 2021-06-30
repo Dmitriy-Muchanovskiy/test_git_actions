@@ -47,9 +47,12 @@ jobs:
       - name: Print list of files in current filder
         run: ls -la
 
-      - name: Test working-directory option
-        working-directory: ./test_folder
+      - name: Test working-directory option 
+        #Using the working-directory keyword, you can specify the working directory of where to run the command
+        working-directory: ./test_folder 
+        continue-on-error: true
         run: |
+          asdasdw
           pwd && ls -la
 
       - name: Test After working-directory
