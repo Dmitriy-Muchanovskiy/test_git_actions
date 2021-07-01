@@ -174,7 +174,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: cover_text_html
-          path: go_test/cover.?t[mlxt]*
+          path: go_test/cover.?t??
           retention-days: 5
 
       - name: Upload cover.html in artifact
