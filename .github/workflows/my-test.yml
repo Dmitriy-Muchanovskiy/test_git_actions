@@ -7,9 +7,9 @@ on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
     branches: [ master ]
-    paths:
-      - 'go_test/**'
-      - '!go_test/2**'
+    # paths:
+    #   - 'go_test/**'
+    #   - '!go_test/2**'
     # paths-ignore:
     #   - "test_*/**"
 
@@ -168,6 +168,22 @@ jobs:
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
+          go tool cover -html=cover.txt -o cover.html
+
+      - name: Upload cover.txt in artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cover_text
+          path: cover.txt
+          retention-days: 5
+
+      - name: Upload cover.html in artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cover_html
+          path: cover.html
+          retention-days: 5
+          
       - name: package test
         if: ${{ false }}
         run: |
