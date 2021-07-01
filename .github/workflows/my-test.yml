@@ -169,6 +169,8 @@ jobs:
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
           go tool cover -html=cover.txt -o cover.html
+          zip test_and_cover.zip cover.* hello.go
+
 
       - name: Upload cover.txt in artifact
         uses: actions/upload-artifact@v2
@@ -183,6 +185,14 @@ jobs:
           name: cover_html
           path: go_test/cover.html
           retention-days: 5
+
+      - name: Upload cover.zip in artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cover_zip
+          path: go_test/test_and_cover.zip
+          retention-days: 5
+
           
       - name: package test
         if: ${{ false }}
