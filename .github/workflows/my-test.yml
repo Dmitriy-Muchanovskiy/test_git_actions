@@ -223,12 +223,14 @@ jobs:
           go run main.go
 
       - id: cover_output
-        run: echo "::set-output name=date::$(date)"
+        run: echo "::set-output name=date::$(cat cover_info.txt)"
           #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
           #steps.step1.outputs.test
 
       - name: Print test info output for badge
-        run: echo "${{ steps.cover_outputs.output.date }}"
+        run: echo "${{ steps.cover_output.outputs.date }}"
+
+        
 
 
   Setup_python:
