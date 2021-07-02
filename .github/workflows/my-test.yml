@@ -1,6 +1,11 @@
 # This is a basic workflow to help you get started with Actions
 
 name: MY-CI-CD
+env:
+  FOLDER_ARTIFACT_NAME: "folder_artifact"
+  COVER_TEXT_FILE: "cover.txt"
+  COVER_HTML_FILE: "cover.html"
+  TEST_INFO_FILE: "test_info.txt"
 
 # Controls when the workflow will run
 on:
@@ -162,19 +167,25 @@ jobs:
       - name: Go unit-tests 
         run: |
           cd go_test && go mod init go_test && go mod tidy
-          go test -v
+          go test -v > ${{ TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
           bash cover.sh
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
-          go tool cover -html=cover.txt -o cover.html
+          go tool cover -html=${{ COVER_TEXT_FILE }} -o ${{ COVER_HTML_FILE }} 
 
-      - name: Upload cover.txt in artifact
+      - name: Create folder and copy files for artifact
+        run: |
+          mkdir ${{ FOLDER_ARTIFACT_NAME }}
+          cp ${{ COVER_TEXT_FILE }} ${{ COVER_HTML_FILE }}  ${{ TEST_INFO_FILE }}  ${{ FOLDER_ARTIFACT_NAME }}/
+
+
+      - name: Upload files in artifact
         uses: actions/upload-artifact@v2
         with:
-          name: cover_text_html
-          path: go_test/cover.*t*
+          name: artifact
+          path: ${{ FOLDER_ARTIFACT_NAME }}/*
           retention-days: 5
 
       - name: Upload cover.html in artifact
