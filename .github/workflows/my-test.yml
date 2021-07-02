@@ -205,6 +205,17 @@ jobs:
       - name: Print test info output for badge
         run: echo "${{ steps.cover_output.outputs.cover_info }}"
 
+      - name: Create Awesome Badge
+        uses: schneegans/dynamic-badges-action@v1.1.0
+        with:
+          auth: ${{ secrets.GIST_SECRET }}
+          gistID: c83c475ed2cec0990f4c8964a465b236
+          filename: test.json
+          label: Hello
+          message: World
+          color: red
+
+#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
         
 
 
