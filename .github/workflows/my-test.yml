@@ -199,10 +199,13 @@ jobs:
 
       - name: Output cover % for badge
         id: cover_output
-        run: echo $(cat cover_info.txt)
-        #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
-        echo "::set-output name=date::$(date)"
-        #run: echo "${{ steps.cover_output.output.date }}"
+        run: |
+          echo $(cat cover_info.txt)
+          #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
+          echo "::set-output name=date::$(date)"
+
+      - name: Print test info output for badge
+        run: echo "${{ steps.cover_output.output.date }}"
 
 
   Setup_python:
