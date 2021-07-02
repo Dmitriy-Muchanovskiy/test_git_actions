@@ -167,25 +167,25 @@ jobs:
       - name: Go unit-tests 
         run: |
           cd go_test && go mod init go_test && go mod tidy
-          go test -v > ${{ TEST_INFO_FILE }} 
+          go test -v > ${{ env.TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
           bash cover.sh
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
-          go tool cover -html=${{ COVER_TEXT_FILE }} -o ${{ COVER_HTML_FILE }} 
+          go tool cover -html=${{ env.COVER_TEXT_FILE }} -o ${{ env.COVER_HTML_FILE }} 
 
       - name: Create folder and copy files for artifact
         run: |
-          mkdir ${{ FOLDER_ARTIFACT_NAME }}
-          cp ${{ COVER_TEXT_FILE }} ${{ COVER_HTML_FILE }}  ${{ TEST_INFO_FILE }}  ${{ FOLDER_ARTIFACT_NAME }}/
+          mkdir ${{ env.FOLDER_ARTIFACT_NAME }}
+          cp ${{ env.COVER_TEXT_FILE }} ${{ env.COVER_HTML_FILE }}  ${{ env.TEST_INFO_FILE }}  ${{ env.FOLDER_ARTIFACT_NAME }}/
 
 
       - name: Upload files in artifact
         uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: ${{ FOLDER_ARTIFACT_NAME }}/*
+          path: ${{ env.FOLDER_ARTIFACT_NAME }}/*
           retention-days: 5
 
       - name: Upload cover.html in artifact
