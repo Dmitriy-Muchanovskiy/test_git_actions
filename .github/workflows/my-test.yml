@@ -129,6 +129,8 @@ jobs:
 
   go_test:
     runs-on: ubuntu-20.04
+    outputs:
+      output1: ${{ steps.cover_output.outputs.cover_info }}
     env:
       PACKAGE_NAME: go_main
 
@@ -205,6 +207,12 @@ jobs:
       - name: Print test info output for badge
         run: echo "${{ steps.cover_output.outputs.cover_info }}"
 
+
+  badge:
+    runs-on: ubuntu-20.04
+    needs: go_test
+    
+    steps:
       - name: Create Awesome Badge
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
@@ -212,9 +220,9 @@ jobs:
           gistID: c83c475ed2cec0990f4c8964a465b236
           filename: cover_badge.json
           label: Coverage
-          message: ${{ steps.cover_output.outputs.cover_info }}
+          message: ${{ needs.go_test.steps.cover_output.outputs.output1 }}
           namedLogo: Go
-          color: red
+          color: orange
 
 
 #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
