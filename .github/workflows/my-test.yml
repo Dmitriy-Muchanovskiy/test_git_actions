@@ -198,8 +198,8 @@ jobs:
           ls $(go env GOPATH)/src
           go run main.go
 
-      - name: Make cover output step
-        id: cover_output
+      #name: Make cover output step
+      - id: cover_output
         run: echo "::set-output name=cove_info::$(cat cover_info.txt)"
 
       - name: Print test info output for badge
