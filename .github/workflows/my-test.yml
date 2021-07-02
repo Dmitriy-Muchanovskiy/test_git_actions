@@ -70,7 +70,7 @@ jobs:
       - id: step1
         run: echo "::set-output name=test::hello"
       - id: step_2
-        run: echo "::set-output name=tes_t::$(cat faile.txt)"
+        run: echo "::set-output name=tes_t::$(cat file.txt)"
       - name: output from prev job
         run: echo "blalbla = ${{ steps.step1.outputs.test }} nanana= ${{ steps.step_2.outputs.tes_t }}"
   
@@ -225,9 +225,10 @@ jobs:
       - id: cover_output
         run: echo "::set-output name=date::$(date)"
           #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
+          #steps.step1.outputs.test
 
       - name: Print test info output for badge
-        run: echo "${{ steps.cover_output.output.date }}"
+        run: echo "${{ steps.cover_outputs.output.date }}"
 
 
   Setup_python:
