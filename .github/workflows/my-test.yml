@@ -171,7 +171,7 @@ jobs:
           go test -v > ${{ env.TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
           #bash cover.sh
-          go test -coverprofile=cover.txt | grep " .*%" > cover_info.txt
+          go test -coverprofile=cover.txt | grep -o " .*%" > cover_info.txt
           mv cover_info.txt ../
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
@@ -198,9 +198,9 @@ jobs:
           ls $(go env GOPATH)/src
           go run main.go
 
-      #name: Make cover output step
-      - id: cover_output
-        run: echo "::set-output name=cove_info::$(cat cover_info.txt)"
+      - name: Make cover output step
+        id: cover_output
+        run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
 
       - name: Print test info output for badge
         run: echo "${{ steps.cover_output.outputs.cover_info }}"
