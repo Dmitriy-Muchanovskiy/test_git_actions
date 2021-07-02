@@ -214,7 +214,7 @@ jobs:
           label: Coverage
           message: ${{ steps.cover_output.outputs.cover_info }}
           namedLogo: Go
-          color: green
+          color: red
 
 
 #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
