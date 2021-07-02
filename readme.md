@@ -7,6 +7,6 @@ Status of last pipeline: <br>
 Status of last pipeline: <br>
 <img src="https://github.com/Dmitriy-Muchanovskiy/test_git_actions/workflows/MY-CI-CD/badge.svg?branch-master"><br>
 
-BADGE
-![test](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Dmitriy-Muchanovskiy/c83c475ed2cec0990f4c8964a465b236/raw/test.json)
+Test Coverage: <br>
+![](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/Dmitriy-Muchanovskiy/c83c475ed2cec0990f4c8964a465b236/raw/cover_badge.json)
 

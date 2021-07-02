@@ -171,7 +171,7 @@ jobs:
           go test -v > ${{ env.TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
           #bash cover.sh
-          go test -coverprofile=cover.txt | grep " .*%" > cover_info.txt
+          go test -coverprofile=cover.txt | grep -o " .*%" > cover_info.txt
           mv cover_info.txt ../
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
@@ -210,12 +210,13 @@ jobs:
         with:
           auth: ${{ secrets.GIST_SECRET }}
           gistID: c83c475ed2cec0990f4c8964a465b236
-          filename: test.json
-          label: Hello
-          message: World
-          color: red
+          filename: cover_badge.json
+          label: Coverage
+          message: ${{ steps.cover_output.outputs.cover_info }}
+          color: orange
 
-#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
+
+#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
         
 
 
