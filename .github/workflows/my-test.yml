@@ -178,7 +178,7 @@ jobs:
       - name: Create folder and copy files for artifact
         run: |
           mkdir ${{ env.FOLDER_ARTIFACT_NAME }}
-          cp ${{ env.COVER_TEXT_FILE }} ${{ env.COVER_HTML_FILE }}  ${{ env.TEST_INFO_FILE }}  ${{ env.FOLDER_ARTIFACT_NAME }}/
+          cp go_test/${{ env.COVER_TEXT_FILE }} go_test/${{ env.COVER_HTML_FILE }}  go_test/${{ env.TEST_INFO_FILE }}  ${{ env.FOLDER_ARTIFACT_NAME }}/
 
 
       - name: Upload files in artifact
