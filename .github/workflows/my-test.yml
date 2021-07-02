@@ -171,7 +171,7 @@ jobs:
           go test -v > ${{ env.TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
           #bash cover.sh
-          go test -coverprofile=cover.txt | grep -o " .*%" > cover_info.txt
+          go test -coverprofile=cover.txt | grep " .*%" > cover_info.txt
           mv cover_info.txt ../
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
