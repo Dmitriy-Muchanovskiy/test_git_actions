@@ -15,7 +15,7 @@ func TestHelloEmpty(t *testing.T) {
         t.Logf("hello(\"\") success, expected %v, got %v", "Hello Empty", emptyResult)
     }
 }
-/*
+
 func TestHelloValue(t *testing.T) {
     //test for empty argument
     emptyResult := hello("Test") // should be return Hello Empty
@@ -36,4 +36,4 @@ func TestFirst(t *testing.T) {
     } else {
         t.Logf("first hello success, expected Just string, got %v", result)
     }
-}*/
+}
