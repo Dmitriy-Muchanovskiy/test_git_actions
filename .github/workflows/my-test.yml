@@ -65,10 +65,12 @@ jobs:
       output1: ${{ steps.step1.outputs.test }}
       output2: ${{ steps.step_2.outputs.tes_t }}
     steps:
+      - name: some actions
+        run: echo "some text to file" > file.txt
       - id: step1
         run: echo "::set-output name=test::hello"
       - id: step_2
-        run: echo "::set-output name=tes_t::$(date)"
+        run: echo "::set-output name=tes_t::$(cat faile.txt)"
       - name: output from prev job
         run: echo "blalbla = ${{ steps.step1.outputs.test }} nanana= ${{ steps.step_2.outputs.tes_t }}"
   
@@ -220,8 +222,7 @@ jobs:
           ls $(go env GOPATH)/src
           go run main.go
 
-      - name: Output cover % for badge
-        id: cover_output
+      - id: cover_output
         run: echo "::set-output name=date::$(date)"
           #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
 
