@@ -202,10 +202,7 @@ jobs:
         run: echo $(cat cover_info.txt)
         #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
         echo "::set-output name=date::$(date)"
-
-        #- name: Test print from output
         #run: echo "${{ steps.cover_output.output.date }}"
-
 
 
   Setup_python:
