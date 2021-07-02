@@ -190,13 +190,6 @@ jobs:
           path: ${{ env.FOLDER_ARTIFACT_NAME }}/*
           retention-days: 5
 
-      - name: Upload cover.html in artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: cover_html
-          path: go_test/cover.html
-          retention-days: 5
-          
       - name: package test
         if: ${{ false }}
         run: |
@@ -210,8 +203,8 @@ jobs:
         #run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
         echo "::set-output name=date::$(date)"
 
-      - name: Test print from output
-        run: echo "${{ steps.cover_output.output.date }}"
+        #- name: Test print from output
+        #run: echo "${{ steps.cover_output.output.date }}"
 
 
 
