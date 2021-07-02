@@ -213,6 +213,7 @@ jobs:
           filename: cover_badge.json
           label: Coverage
           message: ${{ steps.cover_output.outputs.cover_info }}
+          namedLogo: Go
           color: green
 
 
