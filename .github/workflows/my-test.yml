@@ -169,7 +169,8 @@ jobs:
           cd go_test && go mod init go_test && go mod tidy
           go test -v > ${{ env.TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
-          bash cover.sh
+          #bash cover.sh
+          go test -coverprofile=cover.txt | grep -o " .*%" > cover_info.txt
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
@@ -201,6 +202,13 @@ jobs:
           cd my && cp -r my $(go env GOPATH)/src
           ls $(go env GOPATH)/src
           go run main.go
+
+      - name: Output cover % for badge
+        id: cover_output
+        run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
+
+      - name: Test print info from output
+        run: echo "${{ steps.cover_output.output.cover_info }}"
 
 
 
