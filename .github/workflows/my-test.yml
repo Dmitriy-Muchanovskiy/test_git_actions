@@ -222,7 +222,7 @@ jobs:
           gistID: c83c475ed2cec0990f4c8964a465b236
           filename: cover_badge.json
           label: Coverage
-          message: ${{ needs.go_test.steps.outputs.output1 }}
+          message: ${{ needs.go_test.outputs.output1 }}
           namedLogo: Go
           color: orange
 
