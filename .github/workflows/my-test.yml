@@ -68,9 +68,9 @@ jobs:
       - id: step1
         run: echo "::set-output name=test::hello"
       - id: step_2
-        run: echo "::set-output name=tes_t::world"
+        run: echo "::set-output name=tes_t::$(date)"
       - name: output from prev job
-        run: echo "blalbla = ${{ steps.step1.outputs.test }} nanana= ${{ steps.step_1.outputs.tes_t }}"
+        run: echo "blalbla = ${{ steps.step1.outputs.test }} nanana= ${{ steps.step_2.outputs.tes_t }}"
   
   
   job2:
