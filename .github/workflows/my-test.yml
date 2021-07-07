@@ -215,7 +215,17 @@ jobs:
     steps:
       - name: Print outputs prev job
         run: echo "badge = ${{ needs.go_test.outputs.output1 }}"
+      - name: Make color for bage
+        id: cover_color
+        working-directory: .github/workflows/cover
+        run: |
+          pwd && ls -la
+          ./cover.sh
+      - name: Print outputs prev step about color
+        run: echo "color = ${{ steps.cover_color.outputs.cover_color }}"
+
       - name: Create Awesome Badge
+        if: ${{ false }}
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
