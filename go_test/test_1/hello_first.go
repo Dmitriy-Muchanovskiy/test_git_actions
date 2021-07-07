@@ -1,7 +1,7 @@
-package main
+package test_1
 
 //import "fmt"
 
-func first() string {
+func First() string {
     return "Just string"
 }

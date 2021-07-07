@@ -1,4 +1,4 @@
-package main
+package test_1
 import "testing"
 
 //func TestAbc(t *testing.T) {
@@ -7,7 +7,7 @@ import "testing"
 
 func TestHelloEmpty(t *testing.T) {
     //test for empty argument
-    emptyResult := hello("") // should be return Hello Empty
+    emptyResult := Hello("") // should be return Hello Empty
 
     if emptyResult != "Hello Empty" {
         t.Errorf("hello(\"\") failed, expected %v, got %v", "Hello Empty", emptyResult)
@@ -15,10 +15,10 @@ func TestHelloEmpty(t *testing.T) {
         t.Logf("hello(\"\") success, expected %v, got %v", "Hello Empty", emptyResult)
     }
 }
-/*
+
 func TestHelloValue(t *testing.T) {
     //test for empty argument
-    emptyResult := hello("Test") // should be return Hello Empty
+    emptyResult := Hello("Test") // should be return Hello Empty
 
     if emptyResult != "Hello Test!" {
         t.Errorf("hello(\"\") failed, expected %v, got %v", "Hello Test!", emptyResult)
@@ -29,11 +29,11 @@ func TestHelloValue(t *testing.T) {
 
 func TestFirst(t *testing.T) {
  
-    result := first()
+    result := First()
 
     if result == "" {
         t.Errorf("first hello failed, expected Just string, got %v", result)
     } else {
         t.Logf("first hello success, expected Just string, got %v", result)
     }
-}*/
+}
