@@ -221,6 +221,7 @@ jobs:
         id: cover_color
         working-directory: .github/workflows/cover
         run: |
+          echo "${{ needs.go_test.outputs.output1 }}" > cover.txt
           pwd && ls -la
           ./cover.sh
       - name: Print outputs prev step about color

@@ -1,9 +1,9 @@
 #/bin/bash
 
 #cover=80.8%
-cover=${{ needs.go_test.outputs.output1 }}
 color=""
-clear_cover=$(echo $cover | awk -F . '{print $1}')
+#clear_cover=$(echo $cover | awk -F . '{print $1}')
+clear_cover=$(cat cover.txt | awk -F . '{print $1}')
 echo $clear_cover
 case $clear_cover in
     [1-9] | [1][0-9] | 20 ) color=lightgrey ;;
