@@ -1,6 +1,7 @@
 #/bin/bash
 
-cover=80.8%
+#cover=80.8%
+cover=${{ needs.go_test.outputs.output1 }}
 color=""
 clear_cover=$(echo $cover | awk -F . '{print $1}')
 echo $clear_cover
