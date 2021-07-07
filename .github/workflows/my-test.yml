@@ -229,7 +229,7 @@ jobs:
         run: echo "color = ${{ steps.cover_color.outputs.cover_color }}"
 
       - name: Create Awesome Badge
-        if: ${{ false }}
+        if: ${{ true }}
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
           auth: ${{ secrets.GIST_SECRET }}
