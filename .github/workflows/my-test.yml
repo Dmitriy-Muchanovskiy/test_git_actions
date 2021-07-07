@@ -216,8 +216,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2  
-      - name: Print outputs prev job
-        run: echo "badge = ${{ needs.go_test.outputs.output1 }}"
+      - name: Print coverage %
+        run: echo "coverage = ${{ needs.go_test.outputs.output1 }}"
       - name: Make color for bage
         id: cover_color
         working-directory: .github/workflows/cover
@@ -238,7 +238,7 @@ jobs:
           label: Coverage
           message: ${{ needs.go_test.outputs.output1 }}
           namedLogo: Go
-          color: red
+          color: ${{ steps.cover_color.outputs.cover_color }}
 
 
 #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
