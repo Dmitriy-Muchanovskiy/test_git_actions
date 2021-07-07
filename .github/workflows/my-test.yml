@@ -213,6 +213,8 @@ jobs:
     needs: go_test
     
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2  
       - name: Print outputs prev job
         run: echo "badge = ${{ needs.go_test.outputs.output1 }}"
       - name: Make color for bage
