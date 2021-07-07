@@ -13,6 +13,7 @@ case $clear_cover in
     [6][1-9] | [7][0-9] | 80 ) color=yellow ;;
     [8][1-9] | [9][0-4] ) color=green ;;
     [9][5-9] | 100 ) color=brightgreen ;;
+    * ) color=white ;;
 esac
 echo "0-20 = lightgrey, 21-40 = red, 41-60 = orange, 61-80, = yellow, 81-95 = green, 95-100 brightgreen"
 echo $color
