@@ -6,15 +6,25 @@ cat cover.txt
 #clear_cover=$(echo $cover | awk -F . '{print $1}')
 clear_cover=$(cat cover.txt | awk -F . '{print $1}')
 echo $clear_cover
-case $clear_cover in
-    [1-9] | [1][0-9] | 20 ) color=lightgrey ;;
-    [2][1-9] | [3][0-9] | 40 ) color=red ;;
-    [4][1-9] | [5][0-9] | 60 ) color=orange ;;
-    [6][1-9] | [7][0-9] | 80 ) color=yellow ;;
-    [8][1-9] | [9][0-4] ) color=green ;;
-    [9][5-9] | 100 ) color=brightgreen ;;
-    * ) color=white ;;
-esac
+if [[ $clear_cover -gt 94 ]]
+then
+    color=brightgreen
+elif [[ $clear_cover -gt 80 ]]
+then
+    color=green
+elif [[ $clear_cover -gt 60 ]]
+then
+    color=yellow
+elif [[ $clear_cover -gt 40 ]]
+then
+    color=orange
+elif [[ $clear_cover -gt 20 ]]
+then
+    color=red 
+elif [[ $clear_cover -ge 0 ]]
+then
+    color=lightgrey
+fi
 echo "0-20 = lightgrey, 21-40 = red, 41-60 = orange, 61-80, = yellow, 81-95 = green, 95-100 brightgreen"
 echo $color
 echo "::set-output name=cover_color::$color"
