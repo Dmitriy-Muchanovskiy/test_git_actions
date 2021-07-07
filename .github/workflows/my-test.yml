@@ -173,12 +173,13 @@ jobs:
           go test -v > ${{ env.TEST_INFO_FILE }} 
           #go test -coverprofile=cover.txt 
           #bash cover.sh
-          go test -coverprofile=cover.txt ./test_1 | grep -o " .*%" > cover_info.txt
+          go test -coverprofile=cover.txt ./test_1
           mv cover_info.txt ../
           cat cover.txt
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
           go tool cover -html=${{ env.COVER_TEXT_FILE }} -o ${{ env.COVER_HTML_FILE }} 
+          go tool cover -func ${{ env.COVER_TEXT_FILE }} | grep total | awk '{print $3}' > cover_info.txt
 
       - name: Create folder and copy files for artifact
         run: |
