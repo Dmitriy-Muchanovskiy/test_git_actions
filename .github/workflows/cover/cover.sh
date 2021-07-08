@@ -2,7 +2,7 @@
 
 #cover=80.8%
 color=""
-cat ${{ env.COVER_TEXT_FILE }}
+cat $COVER_TEXT_FILE
 #clear_cover=$(echo $cover | awk -F . '{print $1}')
 clear_cover=$(cat cover.txt | awk -F . '{print $1}')
 echo $clear_cover
