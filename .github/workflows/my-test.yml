@@ -6,6 +6,7 @@ env:
   COVER_TEXT_FILE: "cover.txt"
   COVER_HTML_FILE: "cover.html"
   TEST_INFO_FILE: "test_info.txt"
+  COVER_TOTAL_FILE: "cover_total.txt"
 
 # Controls when the workflow will run
 on:
@@ -130,7 +131,7 @@ jobs:
   go_test:
     runs-on: ubuntu-20.04
     outputs:
-      output1: ${{ steps.cover_output.outputs.cover_info }}
+      output1: ${{ steps.cover_output.outputs.cover_total }}
     env:
       PACKAGE_NAME: go_main
 
@@ -178,7 +179,7 @@ jobs:
           go build -o ${{ env.PACKAGE_NAME }}
           ./${{ env.PACKAGE_NAME }}
           go tool cover -html=${{ env.COVER_TEXT_FILE }} -o ${{ env.COVER_HTML_FILE }} 
-          go tool cover -func ${{ env.COVER_TEXT_FILE }} | grep total | awk '{print $3}' > cover_info.txt
+          go tool cover -func ${{ env.COVER_TEXT_FILE }} | grep total | awk '{print $3}' > ${{ env.COVER_TOTAL_FILE }}
           mv cover_info.txt ../
 
       - name: Create folder and copy files for artifact
@@ -203,10 +204,10 @@ jobs:
 
       - name: Make cover output step
         id: cover_output
-        run: echo "::set-output name=cover_info::$(cat cover_info.txt)"
+        run: echo "::set-output name=cover_total::$(cat ${{ env.COVER_TOTAL_FILE }})"
 
       - name: Print test info output for badge
-        run: echo "${{ steps.cover_output.outputs.cover_info }}"
+        run: echo "${{ steps.cover_output.outputs.cover_total }}"
 
 
   badge:
@@ -218,7 +219,7 @@ jobs:
         uses: actions/checkout@v2
       - name: Create file about coverage for make badge_color
         working-directory: .github/workflows/cover
-        run: echo "${{ needs.go_test.outputs.output1 }}" > ${{ env.COVER_TEXT_FILE }}
+        run: echo "${{ needs.go_test.outputs.output1 }}" > ${{ env.COVER_TOTAL_FILE }}
       - name: Make color for badge
         id: cover_color
         working-directory: .github/workflows/cover

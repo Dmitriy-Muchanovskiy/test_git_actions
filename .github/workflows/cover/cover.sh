@@ -1,9 +1,9 @@
 #/bin/bash
 
 color=""
-cat $COVER_TEXT_FILE
+cat $COVER_TOTAL_FILE
 #clear_cover=$(echo $cover | awk -F . '{print $1}')
-clear_cover=$(cat $COVER_TEXT_FILE | awk -F . '{print $1}')
+clear_cover=$(cat $COVER_TOTAL_FILE | awk -F . '{print $1}')
 echo $clear_cover
 if [[ $clear_cover -gt 94 ]]
 then

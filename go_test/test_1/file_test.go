@@ -5,17 +5,17 @@ import "testing"
 //    t.Error() // to indicate test failed
 //}
 
-func TestHelloEmpty(t *testing.T) {
-    //test for empty argument
-    emptyResult := Hello("") // should be return Hello Empty
+// func TestHelloEmpty(t *testing.T) {
+//     //test for empty argument
+//     emptyResult := Hello("") // should be return Hello Empty
 
-    if emptyResult != "Hello Empty" {
-        t.Errorf("hello(\"\") failed, expected %v, got %v", "Hello Empty", emptyResult)
-    } else {
-        t.Logf("hello(\"\") success, expected %v, got %v", "Hello Empty", emptyResult)
-    }
-}
-/*
+//     if emptyResult != "Hello Empty" {
+//         t.Errorf("hello(\"\") failed, expected %v, got %v", "Hello Empty", emptyResult)
+//     } else {
+//         t.Logf("hello(\"\") success, expected %v, got %v", "Hello Empty", emptyResult)
+//     }
+// }
+
 func TestHelloValue(t *testing.T) {
     //test for empty argument
     emptyResult := Hello("Test") // should be return Hello Empty
@@ -26,7 +26,7 @@ func TestHelloValue(t *testing.T) {
         t.Logf("hello(\"\") success, expected %v, got %v", "Hello Test!", emptyResult)
     }
 }
-
+/*
 func TestFirst(t *testing.T) {
  
     result := First()
