@@ -4,7 +4,7 @@
 color=""
 cat $COVER_TEXT_FILE
 #clear_cover=$(echo $cover | awk -F . '{print $1}')
-clear_cover=$(cat cover.txt | awk -F . '{print $1}')
+clear_cover=$(cat $COVER_TEXT_FILE | awk -F . '{print $1}')
 echo $clear_cover
 if [[ $clear_cover -gt 94 ]]
 then
@@ -25,6 +25,6 @@ elif [[ $clear_cover -ge 0 ]]
 then
     color=lightgrey
 fi
-echo -e "$color /n 0-20 = lightgrey, 21-40 = red, 41-60 = orange, 61-80, = yellow, 81-95 = green, 95-100 brightgreen"
-echo $color
+echo -e "$color \n 0-20 = lightgrey, 21-40 = red, 41-60 = orange, 61-80, = yellow, 81-95 = green, 95-100 brightgreen"
+#echo $color
 echo "::set-output name=cover_color::$color"

@@ -216,17 +216,15 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2  
-      - name: Print coverage %
-        run: echo "coverage = ${{ needs.go_test.outputs.output1 }}"
-      - name: Make color for bage
+      - name: Make color for badge
         id: cover_color
         working-directory: .github/workflows/cover
         run: |
           echo "${{ needs.go_test.outputs.output1 }}" > ${{ env.COVER_TEXT_FILE }}
           pwd && ls -la
           ./cover.sh
-      - name: Print outputs prev step about color
-        run: echo "color = ${{ steps.cover_color.outputs.cover_color }}"
+      - name: Print coverage and color for badge
+        run: echo -e "color = ${{ steps.cover_color.outputs.cover_color }} \n coverage = ${{ needs.go_test.outputs.output1 }}"
 
       - name: Create Awesome Badge
         if: ${{ true }}
