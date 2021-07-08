@@ -180,7 +180,7 @@ jobs:
           ./${{ env.PACKAGE_NAME }}
           go tool cover -html=${{ env.COVER_TEXT_FILE }} -o ${{ env.COVER_HTML_FILE }} 
           go tool cover -func ${{ env.COVER_TEXT_FILE }} | grep total | awk '{print $3}' > ${{ env.COVER_TOTAL_FILE }}
-          mv cover_info.txt ../
+          mv ${{ env.COVER_TOTAL_FILE }} ../
 
       - name: Create folder and copy files for artifact
         run: |
