@@ -1,6 +1,5 @@
 #/bin/bash
 
-#cover=80.8%
 color=""
 cat $COVER_TEXT_FILE
 #clear_cover=$(echo $cover | awk -F . '{print $1}')

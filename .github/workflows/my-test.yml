@@ -215,18 +215,18 @@ jobs:
     
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2  
+        uses: actions/checkout@v2
+      - name: Create file about coverage for make badge_color
+        run: echo "${{ needs.go_test.outputs.output1 }}" > ${{ env.COVER_TEXT_FILE }}
       - name: Make color for badge
         id: cover_color
         working-directory: .github/workflows/cover
-        run: |
-          echo "${{ needs.go_test.outputs.output1 }}" > ${{ env.COVER_TEXT_FILE }}
-          pwd && ls -la
-          ./cover.sh
+        run: ./cover.sh
+
       - name: Print coverage and color for badge
         run: echo -e "color = ${{ steps.cover_color.outputs.cover_color }} \n coverage = ${{ needs.go_test.outputs.output1 }}"
 
-      - name: Create Awesome Badge
+      - name: Create Badge
         if: ${{ true }}
         uses: schneegans/dynamic-badges-action@v1.1.0
         with:
