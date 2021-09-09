@@ -1,4 +1,4 @@
-module test.com/go_test
+module go_test
 
 go 1.16
 
