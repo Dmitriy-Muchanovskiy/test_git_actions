@@ -1,0 +1,23 @@
+pipeline {
+	agent { label 'Node-master' }
+	parameters{
+	    string(name: "first_var", defaultValue: "first_text", description: "first_var")
+	    string(name: "second_var", defaultValue: "second_text", description: "second_var")
+	}
+	options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+	}
+	
+	stages {
+		stage('Approve') {
+			steps {
+				sh 'hostname'
+                println("params.first_var="+params.first_var)
+                println("params.second_var="+params.second_var)
+			}
+		}
+	}
+}
+
+
+		
